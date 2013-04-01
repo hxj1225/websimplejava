@@ -37,7 +37,6 @@ public class HelloServlet extends HttpServlet {
      */
     @Override
     public void init() throws ServletException {
-        super.init();
         logger.info("≥ı ºªØservlet");
     }
 
@@ -55,7 +54,6 @@ public class HelloServlet extends HttpServlet {
      */
     @Override
     public void destroy() {
-        super.destroy();
         logger.info("destroy servlet");
     }
 
