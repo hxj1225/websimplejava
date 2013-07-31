@@ -23,7 +23,7 @@ import org.slf4j.LoggerFactory;
  * 
  * @author wb_xiangjun.hexj 2013-4-1 обнГ9:00:25
  */
-@WebServlet(name = "AnnotationServlet", urlPatterns = { "/index.jsp" })
+@WebServlet(name = "AnnotationServlet", urlPatterns = { "/annotationServlet.do" })
 public class AnnotationServlet extends HttpServlet {
 
     /**
@@ -41,6 +41,7 @@ public class AnnotationServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         logger.info("execute doget method");
+        resp.sendRedirect("/index.jsp");
     }
 
     /*
