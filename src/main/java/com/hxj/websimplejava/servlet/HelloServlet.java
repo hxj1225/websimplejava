@@ -16,6 +16,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import com.hxj.websimplejava.concurrent.common.ConcurrentService;
 
 /**
  * 类HelloServlet.java的实现描述：TODO 类实现描述
@@ -31,6 +36,8 @@ public class HelloServlet extends HttpServlet {
 
     Logger                    logger           = LoggerFactory.getLogger(HelloServlet.class);
 
+    @Autowired
+    private ConcurrentService concurrentService;
     /*
      * (non-Javadoc)
      * @see javax.servlet.GenericServlet#init()
@@ -39,9 +46,32 @@ public class HelloServlet extends HttpServlet {
     public void init() throws ServletException {
         logger.info("初始化servlet");
     }
-
+    
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         logger.info("execute doget method");
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("classpath:applicationContext.xml");
+        ConcurrentService concurrentService1 = (ConcurrentService) applicationContext.getBean("concurrentService");
+        concurrentService.toString();
+//        try {
+//			User u = concurrentService.addJob(new Job<User>("hello servlet") {
+//
+//				@Override
+//				public User execute() {
+//					User u = new User();
+//					u.setAge(1);
+//					u.setName("hexiangju");
+//					u.setAddress("浙江杭州");
+//					return u;
+//				}
+//			});
+//			response.getWriter().print(u.getName() + " : " + u.getAge() + " : " + u.getAddress());
+//		} catch (InterruptedException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (ExecutionException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -56,5 +86,9 @@ public class HelloServlet extends HttpServlet {
     public void destroy() {
         logger.info("destroy servlet");
     }
+
+	public void setConcurrentService(ConcurrentService concurrentService) {
+		this.concurrentService = concurrentService;
+	}
 
 }
