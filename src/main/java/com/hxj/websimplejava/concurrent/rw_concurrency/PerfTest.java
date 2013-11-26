@@ -1,7 +1,10 @@
 package com.hxj.websimplejava.concurrent.rw_concurrency;
 
 import java.util.Arrays;
-import java.util.concurrent.*;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.CyclicBarrier;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 public class PerfTest
@@ -11,7 +14,7 @@ public class PerfTest
 
     private static final Spaceship[] SPACESHIPS =
     {
-        new SynchronizedSpaceship(),
+            // new SynchronizedSpaceship(),
         new ReadWriteLockSpaceShip(),
         new ReentrantLockSpaceship(),
         new StampedLockSpaceship(),
