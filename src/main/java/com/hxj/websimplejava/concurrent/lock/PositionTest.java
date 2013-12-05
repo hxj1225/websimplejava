@@ -9,21 +9,24 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 public class PositionTest {
 
-    public final static PositionService[] POSITIONSERVICES   = { new SynchronizedPositionService(new Position(0, 0)),
-            new ReentrantLockPositionService(new Position(0, 0)), new ReadWriteLockPositionService(new Position(0, 0)), };
+    public final static PositionService[] POSITIONSERVICES   = { 
+                                                                 new SynchronizedPositionService(new Position(0, 0)),
+                                                                 new ReentrantLockPositionService(new Position(0, 0)), 
+                                                                 new ReadWriteLockPositionService(new Position(0, 0)), };
 
     /** 整个执行次数 */
     private final static int              EXECUTE_COUNT      = 5;
 
-    private final static int              READ_THREAD_COUNT  = 2;
-    private final static int              WRITE_THREAD_COUNT = 2;
+    private final static int              READ_THREAD_COUNT  = 3;
+    private final static int              WRITE_THREAD_COUNT = 1;
 
     private final static ExecutorService  EXECUTOR           = Executors.newCachedThreadPool();
 
     public static void main(String[] args) throws InterruptedException {
         PositionTest positionTest = new PositionTest();
         for (int i = 0; i < EXECUTE_COUNT; i++) {
-            System.out.println("执行 ---" + i + "---");
+            System.out.println("执行 ---" + i + "---readThreadCount:" + READ_THREAD_COUNT + ";writeThreadCount:"
+                               + WRITE_THREAD_COUNT);
             for (PositionService service : POSITIONSERVICES) {
                 positionTest.run(service);
             }

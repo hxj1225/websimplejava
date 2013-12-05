@@ -5,13 +5,13 @@
                       http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
   version="3.0">
 
+<!-- 
 	<context-param>  
 	  	<param-name>contextConfigLocation</param-name>  
 	  	<param-value>
 	  		classpath:applicationContext*.xml
 	  	</param-value>  
  	</context-param>  
-
 	<servlet>
 		<servlet-name>HelloServlet</servlet-name>
 		<servlet-class>com.hxj.websimplejava.servlet.HelloServlet</servlet-class>
@@ -34,10 +34,11 @@
     </servlet>  
     <servlet-mapping>  
         <servlet-name>springmvc</servlet-name>  
-        <url-pattern>/</url-pattern>  
+        <url-pattern>*.jsp</url-pattern>  
     </servlet-mapping>
     
 	<listener>     
 	   <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>     
 	</listener>  
+ -->
 </web-app>

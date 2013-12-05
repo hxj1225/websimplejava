@@ -18,6 +18,7 @@ public class Test {
 
     int a = 1;
 
+
     public static class InnerClass {
 
         public Test this$0;
@@ -35,5 +36,6 @@ public class Test {
         System.out.println(14 << 2);
 
         System.out.println(1000 % 1000);
+        System.out.println();
     }
 }
