@@ -12,7 +12,7 @@
 		<junit.version>4.10</junit.version>
 		<logback.version>1.0.9</logback.version>
 		<slf4j.version>1.7.4</slf4j.version>
-		<jetty.version>8.1.14.v20131031</jetty.version>
+		<jetty.version>9.2.0.RC0</jetty.version>
 		<servlet.version>3.1-b02</servlet.version>
 		<spring.version>3.2.3.RELEASE</spring.version>
 		<akka.version>2.2.0</akka.version>
@@ -38,11 +38,6 @@
 		<dependency>
 			<groupId>org.eclipse.jetty</groupId>
 			<artifactId>jetty-webapp</artifactId>
-			<version>${jetty.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.eclipse.jetty</groupId>
-			<artifactId>jetty-websocket</artifactId>
 			<version>${jetty.version}</version>
 		</dependency>
 
@@ -128,6 +123,11 @@
 			</exclusions>
 		</dependency>
 
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>r09</version>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -142,7 +142,7 @@
 					<target>1.7</target>
 					<showDeprecation>true</showDeprecation>
                 	<showWarnings>true</showWarnings>
-					<executable>C:/Java/jdk1.7.0_45/bin/javac</executable>
+					<executable>C:/Java/jdk1.7.0_51/bin/javac</executable>
 					<fork>true</fork>
 				</configuration>
 			</plugin>

@@ -19,9 +19,10 @@ import java.util.concurrent.locks.ReentrantLock;
 public class DoubleBufferedBlockingQueue<E> extends AbstractQueue<E> implements BlockingQueue<E>, Serializable {
 
     private static final long serialVersionUID = 1L;
-    private Object[]          writeItem;            // 存放队列
-    private Object[]          readItem;             // 读取队列
+    private E[]               writeItem;            // 存放队列
+    private E[]               readItem;             // 读取队列
 
+    // 队列中有效元素的数量
     private int               readCount, writeCount;
 
     private Lock              writeLock;
@@ -43,8 +44,8 @@ public class DoubleBufferedBlockingQueue<E> extends AbstractQueue<E> implements 
             throw new IllegalArgumentException("Queue initial capacity can't less than 0!");
         }
 
-        this.writeItem = new Object[writeCapacity];
-        this.readItem = new Object[readCapacity];
+        this.writeItem = (E[]) new Object[writeCapacity];
+        this.readItem = (E[]) new Object[readCapacity];
 
         this.writeLock = new ReentrantLock();
         this.readLock = new ReentrantLock();
@@ -113,6 +114,29 @@ public class DoubleBufferedBlockingQueue<E> extends AbstractQueue<E> implements 
     }
 
     /*
+     * 写队列尾部插入元素，如果队列已满将一直等待，直到写队列有空位插入 (non-Javadoc)
+     * @see java.util.concurrent.BlockingQueue#put(java.lang.Object)
+     */
+    @Override
+    public void put(E e) throws InterruptedException {
+        if (e == null) throw new NullPointerException();
+        writeLock.lockInterruptibly();
+        try {
+            try {
+                while (writeCount >= writeItem.length)
+                    notFull.await();
+            } catch (InterruptedException e1) {
+                notFull.signal();
+                throw e1;
+            }
+            insert(e);
+        } finally {
+            writeLock.unlock();
+        }
+
+    }
+
+    /*
      * (non-Javadoc)
      * @see java.util.Queue#poll()
      */
@@ -149,6 +173,28 @@ public class DoubleBufferedBlockingQueue<E> extends AbstractQueue<E> implements 
                 nanos = readExchange(timeout);
             }
 
+        } finally {
+            readLock.unlock();
+        }
+    }
+
+    /*
+     * (non-Javadoc)
+     * @see java.util.concurrent.BlockingQueue#take()
+     */
+    @Override
+    public E take() throws InterruptedException {
+        readLock.lockInterruptibly();
+        try {
+            try {
+                while (readCount == 0)
+                    //如果没有可读的数量，非空条件一直等待
+                    notEmpty.await();
+            } catch (InterruptedException e) {
+                notEmpty.signal();
+                throw e;
+            }
+            return extract();
         } finally {
             readLock.unlock();
         }
@@ -197,6 +243,7 @@ public class DoubleBufferedBlockingQueue<E> extends AbstractQueue<E> implements 
         writeItem[writeIndex] = e;
         ++writeIndex;// 读下标+1
         ++writeCount;// 读数量+1
+        notEmpty.signal();// 通知非空条件上等待的读线程
     }
 
     @SuppressWarnings("unchecked")
@@ -205,6 +252,7 @@ public class DoubleBufferedBlockingQueue<E> extends AbstractQueue<E> implements 
         readItem[readIndex] = null;
         ++readIndex;
         --readCount;
+        notFull.signal();
         return e;
     }
 
@@ -224,7 +272,7 @@ public class DoubleBufferedBlockingQueue<E> extends AbstractQueue<E> implements 
                 }
             } else {
                 // 通过指向的方式交换2个队列
-                Object[] tmpItem = readItem;
+                E[] tmpItem = readItem;
                 readItem = writeItem;
                 writeItem = tmpItem;
 
@@ -245,26 +293,6 @@ public class DoubleBufferedBlockingQueue<E> extends AbstractQueue<E> implements 
 
     /*
      * (non-Javadoc)
-     * @see java.util.concurrent.BlockingQueue#put(java.lang.Object)
-     */
-    @Override
-    public void put(E e) throws InterruptedException {
-        // TODO Auto-generated method stub
-
-    }
-
-    /*
-     * (non-Javadoc)
-     * @see java.util.concurrent.BlockingQueue#take()
-     */
-    @Override
-    public E take() throws InterruptedException {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    /*
-     * (non-Javadoc)
      * @see java.util.concurrent.BlockingQueue#remainingCapacity()
      */
     @Override
@@ -277,18 +305,22 @@ public class DoubleBufferedBlockingQueue<E> extends AbstractQueue<E> implements 
      * (non-Javadoc)
      * @see java.util.concurrent.BlockingQueue#drainTo(java.util.Collection)
      */
-    @Override
-    public int drainTo(Collection<? super E> c) {
-        // TODO Auto-generated method stub
-        return 0;
-    }
-
     /*
      * (non-Javadoc)
      * @see java.util.concurrent.BlockingQueue#drainTo(java.util.Collection, int)
      */
     @Override
     public int drainTo(Collection<? super E> c, int maxElements) {
+        // TODO Auto-generated method stub
+        return 0;
+    }
+
+    /*
+     * (non-Javadoc)
+     * @see java.util.concurrent.BlockingQueue#drainTo(java.util.Collection)
+     */
+    @Override
+    public int drainTo(Collection<? super E> c) {
         // TODO Auto-generated method stub
         return 0;
     }

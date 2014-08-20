@@ -15,7 +15,7 @@ import org.xml.sax.SAXException;
 
 
 /**
- * @author wb_xiangjun.hexj
+ * @author xiangjun.hexj
  *
  */
 public class JettyServer {
