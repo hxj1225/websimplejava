@@ -1,7 +1,5 @@
 package com.hxj.websimplejava.concurrent.sort;
 
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
-
 import java.util.Iterator;
 
 
@@ -89,7 +87,7 @@ public class SortedStringsList implements Iterable<String> {
 
         @Override
         public void remove() {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
     }
 }

@@ -1,5 +1,4 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.hxj.websimplejava</groupId>
 	<artifactId>websimplejava</artifactId>
@@ -57,14 +56,14 @@
 			<artifactId>logback-classic</artifactId>
 			<version>${logback.version}</version>
 		</dependency>
-		
+
 		<!-- spring -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
-        <dependency>
+		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-beans</artifactId>
 			<version>${spring.version}</version>
@@ -99,14 +98,14 @@
 			<artifactId>spring-context-support</artifactId>
 			<version>3.2.3.RELEASE</version>
 		</dependency>
-		
-        <dependency>
+
+		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-validator</artifactId>
 			<version>5.0.1.Final</version>
 		</dependency>
-		
-        <dependency>
+
+		<dependency>
 			<groupId>com.typesafe.akka</groupId>
 			<artifactId>akka-actor_2.10</artifactId>
 			<version>${akka.version}</version>
@@ -141,7 +140,7 @@
 					<source>1.7</source>
 					<target>1.7</target>
 					<showDeprecation>true</showDeprecation>
-                	<showWarnings>true</showWarnings>
+					<showWarnings>true</showWarnings>
 					<executable>C:/Java/jdk1.7.0_51/bin/javac</executable>
 					<fork>true</fork>
 				</configuration>

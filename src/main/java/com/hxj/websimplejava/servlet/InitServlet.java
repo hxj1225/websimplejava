@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-@WebServlet(name = "initServlet",urlPatterns = "/")
+//@WebServlet(name = "initServlet",urlPatterns = "/")
 public class InitServlet extends HttpServlet{
 	
 	/**

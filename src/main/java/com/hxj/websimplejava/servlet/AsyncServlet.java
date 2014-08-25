@@ -32,9 +32,9 @@ import org.slf4j.LoggerFactory;
  * 
  * @author wb_xiangjun.hexj 2013-4-1 下午9:05:37
  */
-@WebServlet(name = "AsyncServlet", urlPatterns = { "/asyncServlet.do" }, asyncSupported = true, initParams = {
-                                                                                                              @WebInitParam(name = "threadpoolsize", value = "10"),
-                                                                                                              @WebInitParam(name = "timeout", value = "10000") })
+// @WebServlet(name = "AsyncServlet", urlPatterns = { "/asyncServlet.do" }, asyncSupported = true, initParams = {
+// @WebInitParam(name = "threadpoolsize", value = "10"),
+// @WebInitParam(name = "timeout", value = "10000") })
 public class AsyncServlet extends HttpServlet {
 
     private static final long serialVersionUID = 6727834393411496060L;
@@ -98,8 +98,7 @@ public class AsyncServlet extends HttpServlet {
                     Thread.sleep(delay);
                     ServletResponse response = asyncContext.getResponse();
                     if (response != null) {
-                        response.getWriter().write(MessageFormat.format("<h1>执行任务了in bgt_id:[{0}], delay:{1}</h1>",
-                                                                        Thread.currentThread().getId(), delay));
+                        response.getWriter().write(MessageFormat.format("<h1>执行任务了in bgt_id:[{0}], delay:{1}</h1>", Thread.currentThread().getId(), delay));
                         asyncContext.complete();
                     } else {
                         throw new IllegalStateException("Response object from context is null!");

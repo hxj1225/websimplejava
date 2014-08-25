@@ -16,8 +16,8 @@ import javax.servlet.http.HttpServlet;
  * 
  * @author wb_xiangjun.hexj 2013-4-3 обнГ1:59:35
  */
-@WebServlet(name = "UploadServlet", urlPatterns = "/uploadServlet.do")
-@MultipartConfig
+// @WebServlet(name = "UploadServlet", urlPatterns = "/uploadServlet.do")
+// @MultipartConfig
 public class UploadServlet extends HttpServlet {
 
 }

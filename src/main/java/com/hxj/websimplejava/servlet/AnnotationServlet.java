@@ -23,7 +23,7 @@ import org.slf4j.LoggerFactory;
  * 
  * @author wb_xiangjun.hexj 2013-4-1 обнГ9:00:25
  */
-@WebServlet(name = "AnnotationServlet", urlPatterns = { "/annotationServlet.do" })
+//@WebServlet(name = "AnnotationServlet", urlPatterns = { "/annotationServlet.do" })
 public class AnnotationServlet extends HttpServlet {
 
     /**
