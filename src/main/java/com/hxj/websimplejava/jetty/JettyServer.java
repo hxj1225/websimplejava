@@ -27,7 +27,7 @@ public class JettyServer {
         try {
             configuration = new XmlConfiguration(
                                                  new FileInputStream(
-                                                                     "D:/soft/jetty-distribution-8.1.9.v20130131/etc/jetty.xml"));
+                                                                     "D:/soft/jetty-distribution-9.2.2.v20140723/etc/jetty.xml"));
         } catch (FileNotFoundException e1) {
             e1.printStackTrace();
         } catch (SAXException e1) {
