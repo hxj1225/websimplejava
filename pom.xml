@@ -15,6 +15,7 @@
 		<servlet.version>3.1-b02</servlet.version>
 		<spring.version>3.2.3.RELEASE</spring.version>
 		<akka.version>2.2.0</akka.version>
+		<groovy.version>2.3.7</groovy.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -137,6 +138,11 @@
 			<groupId>commons-beanutils</groupId>
 			<artifactId>commons-beanutils</artifactId>
 			<version>1.8.3</version>
+		</dependency>
+		<dependency>
+			<groupId>org.codehaus.groovy</groupId>
+			<artifactId>groovy-all</artifactId>
+			<version>${groovy.version}</version>
 		</dependency>
 
 	</dependencies>
