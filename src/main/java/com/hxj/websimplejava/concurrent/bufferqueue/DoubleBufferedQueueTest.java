@@ -63,7 +63,8 @@ public class DoubleBufferedQueueTest {
 
     class Consummer implements Runnable {
 
-        public void run() {
+        @Override
+		public void run() {
             int count = 0;
             long before = System.nanoTime();
             while (count <= times) {
@@ -84,7 +85,8 @@ public class DoubleBufferedQueueTest {
 
     class Productor implements Runnable {
 
-        public void run() {
+        @Override
+		public void run() {
             int count = times;
             while (true) {
                 try {

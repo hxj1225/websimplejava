@@ -18,8 +18,6 @@ import javax.servlet.AsyncEvent;
 import javax.servlet.AsyncListener;
 import javax.servlet.ServletException;
 import javax.servlet.ServletResponse;
-import javax.servlet.annotation.WebInitParam;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -41,7 +39,8 @@ public class AsyncServlet extends HttpServlet {
     Logger                    logger           = LoggerFactory.getLogger(AsyncServlet.class);
     ExecutorService           executorService  = null;
 
-    protected void service(HttpServletRequest req, HttpServletResponse resp) {
+    @Override
+	protected void service(HttpServletRequest req, HttpServletResponse resp) {
         resp.setCharacterEncoding("GBK");
         AsyncContext asyncContext = req.startAsync();
         asyncContext.setTimeout(Long.parseLong(getInitParameter("timeout")));

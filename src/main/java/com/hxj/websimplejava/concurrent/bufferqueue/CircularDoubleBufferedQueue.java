@@ -72,7 +72,8 @@ public class CircularDoubleBufferedQueue<E> extends AbstractQueue<E> implements 
     /**
      * nonblocking interface
      */
-    public boolean offer(E e) {
+    @Override
+	public boolean offer(E e) {
         if (e == null) {
             throw new NullPointerException();
         }
@@ -106,7 +107,8 @@ public class CircularDoubleBufferedQueue<E> extends AbstractQueue<E> implements 
     /**
      * nonblocking interface
      */
-    public E peek() {
+    @Override
+	public E peek() {
         readLock.lock();
         try {
             if (readCount <= 0) {
@@ -122,7 +124,8 @@ public class CircularDoubleBufferedQueue<E> extends AbstractQueue<E> implements 
     /**
      * nonblocking interface
      */
-    public E poll() {
+    @Override
+	public E poll() {
         readLock.lock();
         try {
             if (readCount <= 0) {
@@ -180,15 +183,18 @@ public class CircularDoubleBufferedQueue<E> extends AbstractQueue<E> implements 
         }
     }
 
-    public int drainTo(Collection<? super E> c) {
+    @Override
+	public int drainTo(Collection<? super E> c) {
         throw new UnsupportedOperationException();
     }
 
-    public int drainTo(Collection<? super E> c, int maxElements) {
+    @Override
+	public int drainTo(Collection<? super E> c, int maxElements) {
         throw new UnsupportedOperationException();
     }
 
-    public boolean offer(E e, long timeout, TimeUnit unit) throws InterruptedException {
+    @Override
+	public boolean offer(E e, long timeout, TimeUnit unit) throws InterruptedException {
         if (e == null) {
             throw new NullPointerException();
         }
@@ -222,7 +228,8 @@ public class CircularDoubleBufferedQueue<E> extends AbstractQueue<E> implements 
         }
     }
 
-    public E poll(long timeout, TimeUnit unit) throws InterruptedException {
+    @Override
+	public E poll(long timeout, TimeUnit unit) throws InterruptedException {
         long nanoTime = unit.toNanos(timeout);
         readLock.lockInterruptibly();
 
@@ -245,7 +252,8 @@ public class CircularDoubleBufferedQueue<E> extends AbstractQueue<E> implements 
     /**
      * blocking interface
      */
-    public void put(E e) throws InterruptedException {
+    @Override
+	public void put(E e) throws InterruptedException {
         if (e == null) {
             throw new NullPointerException();
         }
@@ -270,7 +278,8 @@ public class CircularDoubleBufferedQueue<E> extends AbstractQueue<E> implements 
         }
     }
 
-    public int remainingCapacity() {
+    @Override
+	public int remainingCapacity() {
         writeLock.lock();
         try {
             return writeArray.length - writeCount;
@@ -282,7 +291,8 @@ public class CircularDoubleBufferedQueue<E> extends AbstractQueue<E> implements 
     /**
      * blocking interface
      */
-    public E take() throws InterruptedException {
+    @Override
+	public E take() throws InterruptedException {
         readLock.lockInterruptibly();
         try {
             for (;;) {

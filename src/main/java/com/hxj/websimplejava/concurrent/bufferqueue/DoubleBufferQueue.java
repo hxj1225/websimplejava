@@ -71,7 +71,8 @@ public class DoubleBufferQueue<T> {
     public void check() {
         Runnable runner = new Runnable() {
 
-            public void run() {
+            @Override
+			public void run() {
                 while (true) {
                     synchronized (lT) {
                         if (lT.isEmpty()) {

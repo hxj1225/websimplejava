@@ -23,7 +23,8 @@ public class DeadLock1 {
     public static void main(String[] args) throws Exception {
         Thread t = new Thread(new Runnable() {
 
-            public void run() {
+            @Override
+			public void run() {
                 DeadLock1 test = new DeadLock1();
                 test.say();
             }
@@ -33,7 +34,8 @@ public class DeadLock1 {
         for (int i = 0; i < 10; i++) {
             new Thread(new Runnable() {
 
-                public void run() {
+                @Override
+				public void run() {
                     DeadLock1 test = new DeadLock1();
                     test.say();
                 }

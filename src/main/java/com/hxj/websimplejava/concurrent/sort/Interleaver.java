@@ -35,7 +35,8 @@ public class Interleaver extends Thread implements WordHandler {
     }
 
 
-    public String[] getWords() {
+    @Override
+	public String[] getWords() {
         return sorted;
     }
 }

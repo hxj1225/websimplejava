@@ -5,11 +5,18 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public class ConcurrentService {
 
     private int             threadSize;
 
     private ExecutorService executorService;
+    
+    public ConcurrentService() {
+    	executorService = Executors.newFixedThreadPool(10);
+    }
 
     public ConcurrentService(int threadSize){
         this.threadSize = threadSize;

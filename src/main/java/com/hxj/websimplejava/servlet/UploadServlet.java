@@ -7,8 +7,6 @@
  */
 package com.hxj.websimplejava.servlet;
 
-import javax.servlet.annotation.MultipartConfig;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 
 /**

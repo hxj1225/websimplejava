@@ -21,7 +21,8 @@ public class Kids implements Runnable {
      * (non-Javadoc)
      * @see java.lang.Runnable#run()
      */
-    public void run() {
+    @Override
+	public void run() {
         while (true) {
             try {
                 ToyQueue.rq.take();

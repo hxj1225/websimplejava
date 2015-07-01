@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.hxj.websimplejava</groupId>
 	<artifactId>websimplejava</artifactId>
@@ -16,6 +17,7 @@
 		<spring.version>3.2.3.RELEASE</spring.version>
 		<akka.version>2.2.0</akka.version>
 		<groovy.version>2.3.7</groovy.version>
+		<drools.version>5.6.0.Final</drools.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -145,6 +147,17 @@
 			<version>${groovy.version}</version>
 		</dependency>
 
+		<dependency>
+			<groupId>org.drools</groupId>
+			<artifactId>drools-core</artifactId>
+			<version>${drools.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.drools</groupId>
+			<artifactId>drools-compiler</artifactId>
+			<version>${drools.version}</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
@@ -159,7 +172,7 @@
 					<target>1.7</target>
 					<showDeprecation>true</showDeprecation>
 					<showWarnings>true</showWarnings>
-					<executable>C:/Java/jdk1.7.0_51/bin/javac</executable>
+					<executable>C:/Java/jdk1.7.0_79/bin/javac</executable>
 					<fork>true</fork>
 				</configuration>
 			</plugin>

@@ -211,7 +211,7 @@ public class DoubleBufferedBlockingQueue<E> extends AbstractQueue<E> implements 
         readLock.lock();
         try {
             if (readCount > 0) {
-                return (E) readItem[readIndex];
+                return readItem[readIndex];
             } else {
                 return null;
             }
@@ -248,7 +248,7 @@ public class DoubleBufferedBlockingQueue<E> extends AbstractQueue<E> implements 
 
     @SuppressWarnings("unchecked")
     private E extract() {
-        E e = (E) readItem[readIndex];
+        E e = readItem[readIndex];
         readItem[readIndex] = null;
         ++readIndex;
         --readCount;

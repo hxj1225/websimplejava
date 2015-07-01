@@ -8,7 +8,8 @@ public class StampedLockSpaceship implements Spaceship {
     // private int y;
     //
     // @Override
-    public int readPosition(final int[] coordinates) {
+    @Override
+	public int readPosition(final int[] coordinates) {
          int tries = 1;
         // long stamp = lock.tryOptimisticRead();
         //

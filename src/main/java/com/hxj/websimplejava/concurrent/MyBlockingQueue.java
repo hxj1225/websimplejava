@@ -30,7 +30,8 @@ public class MyBlockingQueue implements Runnable {
      * (non-Javadoc)
      * @see java.lang.Runnable#run()
      */
-    public void run() {
+    @Override
+	public void run() {
         try {
             MyBlockingQueue.queue.put(String.valueOf(this.i));
             System.out.println("[" + this.i + "] in queue");
@@ -47,7 +48,8 @@ public class MyBlockingQueue implements Runnable {
 
         Thread thread = new Thread() {
 
-            public void run() {
+            @Override
+			public void run() {
                 try {
                     while (true) {
                         Thread.sleep((int) (Math.random() * 1000));

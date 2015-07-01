@@ -23,7 +23,8 @@ public class MyCyclicBarrier {
             this.array = array;
         }
 
-        public void run() {
+        @Override
+		public void run() {
             try {
                 array[ID] = new Random().nextInt(100);
                 System.out.println("Component " + ID + " generates: " + array[ID]);
@@ -48,7 +49,8 @@ public class MyCyclicBarrier {
         CyclicBarrier barrier = new CyclicBarrier(2, new Runnable() {
 
             // 在所有线程都到达Barrier时执行
-            public void run() {
+            @Override
+			public void run() {
                 System.out.println("testCyclicBarrier run");
                 array[2] = array[0] + array[1];
             }

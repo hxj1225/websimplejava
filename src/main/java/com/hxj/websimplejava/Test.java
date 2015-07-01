@@ -7,10 +7,9 @@
  */
 package com.hxj.websimplejava;
 
+import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.text.ParseException;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * 类Test.java的实现描述：TODO 类实现描述
@@ -38,67 +37,76 @@ public class Test {
 		System.out.println(output);
 	}
 
+	public void bigDecimal() {
+		BigDecimal a = new BigDecimal(10);
+		BigDecimal b = new BigDecimal(3);
+
+		System.out.println(a.divide(b));
+	}
+
 	public static void main(String[] args) throws ParseException {
-//		System.out.println(A.paid.name());
-//		Test t = new Test();
-//		t.a(190939210, "0.00");
-//		System.out.println(t.a);
-//		System.out.println(t.a);
-//		System.out.println(14 << 2);
-//
-//		System.out.println(1000 % 1000);
-//		System.out.println();
-//		
-//		
-//		LinkedList<User> userList = new LinkedList<User>();
-//		
-//		for (int i = 0; i < 5; i++) {
-//			User user = new User();
-//			user.setAge(i);
-//			userList.add(user);
-//		}
-//		userList.getFirst();
-//
-//		Collator collator = Collator.getInstance();
-//		// TreeMultiset<String> fruits = TreeMultiset.create(collator);
-//		// fruits.add("caffeine");
-//		// fruits.add("café");
-//		// fruits.add("cafeteria");
-//		// 输出
-//		// orignal sort = cafeteria
-//		// orignal sort = caffeine
-//		// orignal sort = café
-//
-//		// Calendar cal = Calendar.getInstance(); // 使用默认的时区和locale
-//		// 指定为美国locale
-//
-//		// for (String string : fruits) {
-//		//
-//		// System.out.println("collator sort = " + string);
-//		// }
-//		//
-//		// int pageCount = (int) Math.ceil(((double) 1825) / (double) 50);
-//		//
-//		// System.out.println(pageCount);
+		// System.out.println(A.paid.name());
+		// Test t = new Test();
+		// t.a(190939210, "0.00");
+		// System.out.println(t.a);
+		// System.out.println(t.a);
+		// System.out.println(14 << 2);
+		//
+		// System.out.println(1000 % 1000);
+		// System.out.println();
+		//
+		//
+		// LinkedList<User> userList = new LinkedList<User>();
+		//
+		// for (int i = 0; i < 5; i++) {
+		// User user = new User();
+		// user.setAge(i);
+		// userList.add(user);
+		// }
+		// userList.getFirst();
+		//
+		// Collator collator = Collator.getInstance();
+		// // TreeMultiset<String> fruits = TreeMultiset.create(collator);
+		// // fruits.add("caffeine");
+		// // fruits.add("café");
+		// // fruits.add("cafeteria");
+		// // 输出
+		// // orignal sort = cafeteria
+		// // orignal sort = caffeine
+		// // orignal sort = café
+		//
+		// // Calendar cal = Calendar.getInstance(); // 使用默认的时区和locale
+		// // 指定为美国locale
+		//
+		// // for (String string : fruits) {
+		// //
+		// // System.out.println("collator sort = " + string);
+		// // }
+		// //
+		// // int pageCount = (int) Math.ceil(((double) 1825) / (double) 50);
+		// //
+		// // System.out.println(pageCount);
+
+		Test test = new Test();
 		
+		//test.bigDecimal();
 		
-        List<String> l = new ArrayList<String>();
-        for (int i = 0; i < 33; i++) {
-            l.add(i + "aa");
-        }
-        
-        
-        
-        List<String> list = new ArrayList<String>();
-        for (int i = 0; i < l.size(); i++) {
-            String s = l.get(i);
-            list.add(s);
-            if(list.size() == 10 || i == l.size() - 1) {
-                System.out.println(list.toString());
-                list.clear();
-            }
-        }
-        
+		System.out.println(1);
+
+		// List<String> l = new ArrayList<String>();
+		// for (int i = 0; i < 33; i++) {
+		// l.add(i + "aa");
+		// }
+		//
+		// List<String> list = new ArrayList<String>();
+		// for (int i = 0; i < l.size(); i++) {
+		// String s = l.get(i);
+		// list.add(s);
+		// if (list.size() == 10 || i == l.size() - 1) {
+		// System.out.println(list.toString());
+		// list.clear();
+		// }
+		// }
 
 	}
 

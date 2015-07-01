@@ -154,7 +154,8 @@ public class Main
         {
             File[] inis = start_d.listFiles(new FilenameFilter()
             {
-                public boolean accept(File dir, String name)
+                @Override
+				public boolean accept(File dir, String name)
                 {
                     return name.toLowerCase(Locale.ENGLISH).endsWith(".ini");
                 }
@@ -372,7 +373,8 @@ public class Main
 
                         File configs[] = etc.listFiles(new FileFilter()
                         {
-                            public boolean accept(File path)
+                            @Override
+							public boolean accept(File path)
                             {
                                 if (!path.isFile())
                                 {
@@ -624,7 +626,8 @@ public class Main
     {
         new Thread(new Runnable()
         {
-            public void run()
+            @Override
+			public void run()
             {
                 try
                 {

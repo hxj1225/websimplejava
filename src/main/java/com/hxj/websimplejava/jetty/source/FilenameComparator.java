@@ -31,7 +31,8 @@ public class FilenameComparator implements Comparator<File>
     public static final FilenameComparator INSTANCE = new FilenameComparator();
     private Collator collator = Collator.getInstance();
 
-    public int compare(File o1, File o2)
+    @Override
+	public int compare(File o1, File o2)
     {
         if (o1.isFile())
         {

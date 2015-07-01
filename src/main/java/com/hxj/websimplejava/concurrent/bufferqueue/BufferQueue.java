@@ -24,7 +24,8 @@ public class BufferQueue {
     public void check() {
         Runnable runner = new Runnable() {
 
-            public void run() {
+            @Override
+			public void run() {
                 while (true) {
                     if (customQueue.size() == 0) {
                         synchronized (customQueue) {

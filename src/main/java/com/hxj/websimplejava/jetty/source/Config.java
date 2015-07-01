@@ -174,7 +174,8 @@ public class Config
     {
         private final Collator collator = Collator.getInstance();
 
-        public int compare(String o1, String o2)
+        @Override
+		public int compare(String o1, String o2)
         {
             CollationKey key1 = collator.getCollationKey(o1);
             CollationKey key2 = collator.getCollationKey(o2);
@@ -194,7 +195,8 @@ public class Config
     private final Set<String> _activeOptions = new TreeSet<String>(new Comparator<String>()
     {
         // Make sure "*" is always at the end of the list
-        public int compare(String o1, String o2)
+        @Override
+		public int compare(String o1, String o2)
         {
             if ("*".equals(o1))
             {
@@ -887,7 +889,8 @@ public class Config
 
         File dirs[] = parentDir.listFiles(new FileFilter()
         {
-            public boolean accept(File path)
+            @Override
+			public boolean accept(File path)
             {
                 return path.isDirectory();
             }

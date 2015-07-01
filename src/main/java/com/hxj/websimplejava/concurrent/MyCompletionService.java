@@ -31,7 +31,8 @@ public class MyCompletionService implements Callable<String> {
      * (non-Javadoc)
      * @see java.util.concurrent.Callable#call()
      */
-    public String call() throws Exception {
+    @Override
+	public String call() throws Exception {
         int time = (int) (Math.random() * 1000);
         System.out.println(this.i + " start");
         Thread.sleep(time);

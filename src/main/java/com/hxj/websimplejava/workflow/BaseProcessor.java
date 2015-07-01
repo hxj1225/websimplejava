@@ -23,7 +23,8 @@ public abstract class BaseProcessor implements Processor, InitializingBean, Appl
         }
     }
 
-    public void setActivities(List<Activitiy> activities) {
+    @Override
+	public void setActivities(List<Activitiy> activities) {
         this.activities = activities;
     }
 

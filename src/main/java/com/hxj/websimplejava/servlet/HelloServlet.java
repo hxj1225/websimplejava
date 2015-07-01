@@ -47,7 +47,8 @@ public class HelloServlet extends HttpServlet {
         logger.info("≥ı ºªØservlet");
     }
     
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    @Override
+	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         logger.info("execute doget method");
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("classpath:applicationContext.xml");
         ConcurrentService concurrentService1 = (ConcurrentService) applicationContext.getBean("concurrentService");
@@ -74,7 +75,8 @@ public class HelloServlet extends HttpServlet {
 //		}
     }
 
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    @Override
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         logger.info("execute dopost method");
     }
 

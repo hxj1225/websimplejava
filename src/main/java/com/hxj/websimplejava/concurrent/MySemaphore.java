@@ -28,7 +28,8 @@ public class MySemaphore implements Runnable {
      * (non-Javadoc)
      * @see java.lang.Runnable#run()
      */
-    public void run() {
+    @Override
+	public void run() {
         if (semaphore.availablePermits() > 0) {// 有许可
             System.out.println("顾客[" + this.i + "]来了");
         } else {

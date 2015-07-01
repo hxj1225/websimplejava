@@ -76,7 +76,8 @@ public class Version {
     /**
      * @return string representation of this version
      */
-    public String toString() {
+    @Override
+	public String toString() {
         StringBuffer sb = new StringBuffer(10);
         sb.append(_version);
         sb.append('.');

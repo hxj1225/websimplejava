@@ -18,7 +18,8 @@ public class ToyFactory implements Runnable {
      * (non-Javadoc)
      * @see java.lang.Runnable#run()
      */
-    public void run() {
+    @Override
+	public void run() {
         while (true) {
             try {
                 Toy toy = new Toy();
