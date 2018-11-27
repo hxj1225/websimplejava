@@ -1,8 +1,5 @@
 package com.hxj.websimplejava.groovy
 
-import org.codehaus.groovy.transform.tailrec.VariableReplacedListener.*
-import org.junit.Before;
-
 class MyClosure {
 
 	/**
